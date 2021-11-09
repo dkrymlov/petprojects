@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="blocks/head">
+</head>
+<body>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header class="mb-auto" xmlns:th="http://www.w3.org/1999/xhtml">
+        <div xmlns:th="http://www.w3.org/1999/xhtml">
+            <!-- text hello user left up angle -->
+            <h3 class="float-md-start mb-0">Krymlov Education</h3>
+            <!-- navigation bar -->
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <!-- link to homepage -->
+                <a class="nav-link active" aria-current="page" href="/homepage">Homepage</a>
+                <!-- link to about page -->
+                <a class="nav-link" href="/courses/add">Add course</a>
+                <!-- link to blogpage -->
+                <a class="nav-link" href="/courses/del">Del course</a>
+                <!-- link to add new block -->
+                <a class="nav-link active" aria-current="page" href="/reviews/add">Add review</a>
+                <a class="nav-link active" aria-current="page" href="/reviews/del">Del review</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3 mt-5 mb-5">
+        <h2 th:text="${title}"></h2><br>
+        <form action="/courses/add" method="post">
+            <input type="text" name="title" placeholder="Enter course name" class="form-control"><br>
+            <textarea name="description" placeholder="Enter course description" class="form-control"></textarea><br>
+            <textarea name="price" placeholder="Enter course price" class="form-control"></textarea><br>
+            <button type="submit" class="btn btn-success">Add this course</button>
+        </form>
+    </main>
+
+</div>
+
+</body>
+
+</body>
+</html>

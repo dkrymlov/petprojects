@@ -1,0 +1,70 @@
+<header class="mb-15" th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml"
+        xmlns:sec="http://www.w3.org/1999/xhtml">
+
+    <script>
+        $( document ).ready(function() {
+            $("#upload-brand").click(function() {
+                $(this).closest("form").attr("action", "/upload/brand");
+            });
+            $("#upload-category").click(function() {
+                $(this).closest("form").attr("action", "/upload/category");
+            });
+            $("#upload-country").click(function() {
+                $(this).closest("form").attr("action", "/upload/country");
+            });
+            $("#upload-seller").click(function() {
+                $(this).closest("form").attr("action", "/upload/seller");
+            });
+            $("#upload-item").click(function() {
+                $(this).closest("form").attr("action", "/upload/item");
+            });
+        });
+    </script>
+
+    <div>
+        <nav class="nav nav-masthead justify-content-left float-md-end row">
+
+            <div class="left-block col-6">
+
+                <a class="nav-link active" aria-current="page" href="/category">Категорії</a>
+                <a class="nav-link" href="/item">Товари</a>
+                <a class="nav-link" href="/brand">Бренди</a>
+                <a class="nav-link" href="/seller">Продавці</a>
+                <a class="nav-link" href="/cart">Корзина</a>
+
+            </div>
+
+            <div class="right-block col-6">
+                <a sec:authorize="!isAuthenticated()" class="nav-link" href="/login">Авторизація</a>
+                <a sec:authorize="!isAuthenticated()" class="nav-link" href="/registration">Реєстрація</a>
+                <a sec:authorize="isAuthenticated()" class="nav-link" href="/logout">Вийти</a>
+                <div class="dropdown">
+                    <a sec:authorize="hasRole('ADMIN')" class="nav-link" href="#">Експорт БД</a>
+                    <div class="dropdown-content">
+                        <a href="/export/category">Категорії</a>
+                        <a href="/export/brand">Бренди</a>
+                        <a href="/export/seller">Продавці</a>
+                        <a href="/export/country">Країни</a>
+                        <a href="/export/item">Товари</a>
+                    </div>
+                </div>
+                <div sec:authorize="hasRole('ADMIN')">
+                    <form class="file-form"  action="/uploadExcel" method="post" enctype="multipart/form-data">
+                        <input type="file" class="form-control" id="file" name="file" />
+                        <!--<button type="submit">Upload</button>-->
+                        <div class="dropdown">
+                        <a id="upload" class="nav-link" href="#">Завантажити</a>
+                        <div class="dropdown-content">
+                            <button id="upload-category" type="submit">Категорії</button>
+                            <button id="upload-brand" type="submit">Бренди</button>
+                            <button id="upload-seller" type="submit">Продавці</button>
+                            <button id="upload-country" type="submit">Країни</button>
+                            <button id="upload-item" type="submit">Товари</button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

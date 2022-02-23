@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en" class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:insert="blocks/head">
+</head>
+
+
+<body class="h-100 text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header class="mb-15" th:insert="blocks/header">
+    </header>
+
+    <main class="px-3">
+
+        <div th:if="${wrongData}" class="alertError">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>Помилка: </strong><text th:text="${wrongData}"></text>
+        </div>
+
+        <div class="categories p-3">
+            <h3>Корзина</h3>
+            <h4 style="color: bisque">До сплати:</h4>
+            <h4 style="color: bisque" th:text="${totalCartPrice}"></h4>
+            <a href="/cart/clean">Очистити корзину</a>
+        </div>
+
+
+        <table class="table table-dark table-bordered table-hover text-center">
+            <thead>
+            <tr class="row ml-3">
+                <th class="col-3"><b>Назва</b></th>
+                <th class="col-3"><b>Бренд</b></th>
+                <th class="col-2"><b>Продавець</b></th>
+                <th class="col-2"><b>Ціна грн.</b></th>
+                <th class="col-2">Дії</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row ml-3" th:each="el : ${cartItems}">
+                <td class="col-3" th:text="${el.item.name}"></td>
+                <td class="col-3" th:text="${el.item.brand.name}"></td>
+                <td class="col-2" th:text="${el.item.seller.name}"></td>
+                <td class="col-2" th:text="${el.item.price}"></td>
+                <td class="pupa href-container col-2">
+                    <a th:href="@{/cart/delete(id=${el.id})}">Видалити</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form style="padding: 2%" action="/order/create" method="post">
+            <input type="text" name="items" th:value="${items}" style="display: none">
+            <input type="text" name="email" placeholder="Введіть email адрес" class="form-control" required><br>
+            <input type="number" name="totalPrice" th:value="${totalPrice}" style="display: none">
+            <button type="submit" class="btn btn-primary">Зробити замовлення</button>
+        </form>
+
+
+
+    </main>
+
+    <footer class="mt-auto text-white-50">
+
+    </footer>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" class="h-100" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:insert="blocks/head">
+</head>
+
+
+<body class="h-100 text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <header class="mb-15" th:insert="blocks/header">
+    </header>
+
+    <main class="px-3">
+
+        <div class="form-container">
+            <div class="categories p-3">
+                <h3>Ви впевнені що хочете видалити товар:</h3>
+            </div>
+
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Назва:</h3>
+                <h3 class="ml-2" th:text="${name}"></h3>
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Інформація:</h3>
+                <h3 class="ml-2" th:text="${info}"></h3>
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Категорія:</h3>
+                <h3 class="ml-2" th:text="${category}"></h3>
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Бренд:</h3>
+                <h3 class="ml-2" th:text="${brand}"></h3>
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Продавець:</h3>
+                <h3 class="ml-2" th:text="${seller}"></h3>
+            </div>
+            <div style="display: flex; flex-direction: row">
+                <h3 style="color: #bfbfbf" class="ml-3">Ціна:</h3>
+                <h3 class="ml-2" th:text="${price}"></h3>
+            </div>
+
+            <form style="padding: 2%" action="/item/delete" method="post">
+                <input type="text" name="id" th:value="${id}" style="display: none">
+                <button type="submit" class="btn btn-primary">Видалити</button>
+            </form>
+
+            <a href="/item">Повернутися до товарів</a>
+
+        </div>
+
+    </main>
+
+    <footer class="mt-auto text-white-50">
+
+    </footer>
+</div>
+
+</body>
+
+</html>

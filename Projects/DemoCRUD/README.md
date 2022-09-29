@@ -11,21 +11,39 @@
 4) Запустити Spring Boot Application
 # Використані технології
 Java 8
+
 JUnit 5
+
 Maven
+
 Spring Framework
+
 Spring Boot
+
 Spring Security Auth
+
 Spring MVC
+
 Apache POI Library
+
 JPA
+
 Hibernate
+
 MYSQL Server
+
 JDBC
+
 Validation API
+
 Thymeleaf
+
 HTML
+
 CSS
+
 JS
+
 Google Charts API
+
 # Made by Danil Krymlov

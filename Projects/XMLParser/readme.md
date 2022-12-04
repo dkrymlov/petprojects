@@ -1,9 +1,9 @@
-#XML Database Parser
-#About 
+# XML Database Parser
+# About 
 
 Java program to parse XML database.
 
-#Functions
+# Functions
 
 Import XML database
 		
@@ -15,7 +15,7 @@ Find values in database by keywords
 
 Export filtered table in HTML table format(XLST)
 
-#Technologies
+# Technologies
 
 UI(Swing+AWT)
 

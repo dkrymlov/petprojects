@@ -1,15 +1,34 @@
 # Demo CRUD
-# Про проект
-Проект для демонстрації навичок освоєних технологій та принципів
-# Як запустити
-1) Запустити проект у будь якому середовищі розробки з підтримкою Java, Spring/Spring Boot, Maven
+# About
+This project is created to demonstrate my skills on used technologies. It is alike a Web Marketplace.
+# Features
 
-2) Відкрити зєднання серверу MYSQL, база даних проекту створиться автоматично
+Secure register and login system
 
-3) Вказати в файлі конфігурацій інформацію для підєднання до серверу БД
+Administration panel
 
-4) Запустити Spring Boot Application
-# Використані технології
+Add items to database from MS Excel files
+
+Export DB as Admin
+
+Full CRUD Interface(each page has it`s own landing)
+
+Shopping cart
+
+Useful diagrams to items on stock
+
+Possibility to see all brands and sellers, and check their own items
+
+# How to make it work
+1) Run project in IDE which supports Java, Spring/Spring Boot, Maven
+
+2) Create MySql connection, create empty database, tables will be auto created
+
+3) In Spring config file set path to database and it`s name
+
+4) Run Spring Boot Application class
+
+# Technologies
 Java 8
 
 JUnit 5

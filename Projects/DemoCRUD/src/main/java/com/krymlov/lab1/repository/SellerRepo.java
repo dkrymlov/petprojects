@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SellerRepo extends CrudRepository<SellerEntity, Long> {
+
+    boolean existsByName(String name);
+    int countAllByName(String name);
     SellerEntity findByName(String name);
     SellerEntity findByAccreditation(Long accreditation);
+
+    SellerEntity getSellerEntityById(Long sellerId);
 }

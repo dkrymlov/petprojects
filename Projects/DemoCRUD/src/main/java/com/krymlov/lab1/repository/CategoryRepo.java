@@ -6,5 +6,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepo extends CrudRepository<CategoryEntity, Long> {
+    boolean existsByName(String name);
+
     CategoryEntity findByName(String name);
+
+    int countAllByName(String name);
+
+    CategoryEntity getCategoryEntityById(Long id);
+
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ItemRepo extends CrudRepository<ItemEntity, Long> {
+    boolean existsByName(String name);
     Iterable<ItemEntity> findAllByCategoryId(Long id);
     Iterable<ItemEntity> findAllByBrandId(Long id);
     Iterable<ItemEntity> findAllBySellerId(Long id);
@@ -25,4 +26,8 @@ public interface ItemRepo extends CrudRepository<ItemEntity, Long> {
     int countAllBySellerId(Long id);
     int countAllBySellerIdAndCategoryId(Long seller_id, Long category_id);
     boolean existsById(Long id);
+
+    int countAllByName(String existingItemName);
+
+    ItemEntity getItemEntityById(Long id);
 }
